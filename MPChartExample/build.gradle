@@ -1,14 +1,19 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
+}
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.xxmassdeveloper.mpchartexample"
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 57
-        versionName '3.1.0'
+        minSdkVersion 19
+        targetSdkVersion 33
+        versionCode getGitCommitCount()
+        versionName getTag()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments useTestStorageService: 'true'
     }
 
     buildTypes {
@@ -17,10 +22,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    viewBinding {
+        enabled = true
+    }
+    namespace 'com.xxmassdeveloper.mpchartexample'
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:1.0.2"
-    implementation 'com.google.android.material:material:1.0.0'
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation 'com.google.android.material:material:1.9.0'
     implementation project(':MPChartLib')
+    implementation 'androidx.core:core-ktx:1.10.1'
+
+    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.5"
+    androidTestUtil "androidx.test.services:test-services:1.4.2"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
 }

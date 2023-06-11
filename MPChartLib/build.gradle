@@ -1,14 +1,17 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+    id "com.vanniktech.maven.publish" version "0.25.2"
+    id 'org.jetbrains.kotlin.android'
+}
 
 group='com.github.philjay'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
+    compileSdkVersion 33
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 33
         versionCode 3
         versionName '3.1.0'
     }
@@ -24,8 +27,10 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.0.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'androidx.annotation:annotation:1.6.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 task sourcesJar(type: Jar) {
