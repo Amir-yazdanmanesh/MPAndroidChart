@@ -1,4 +1,5 @@
-Please give me your pull requests, this project is update versian of MPAndroidChart, help me to keep it update
+Please consider submitting your pull requests. This project is an updated version of MPAndroidChart, and I'm seeking your help to keep it up-to-date.
+
 
 ### Gradle Setup
 
